@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .ace-editor-container{
-
+  width: 100%;
 }
