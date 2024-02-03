@@ -9,11 +9,13 @@ body{
 }
 
 .ace-editor-container{
-  width: 100%;
+  width: 100% !important;
+  
 }
 
 .ace_scrollbar{
   display: none !important;
+  background-color: aquamarine;
 }
 
 .ace_editor {
