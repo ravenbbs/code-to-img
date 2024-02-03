@@ -18,10 +18,24 @@ import "ace-builds/src-noconflict/theme-twilight"
 import "ace-builds/src-noconflict/theme-terminal"
 import "ace-builds/src-noconflict/theme-kuroir"
 
-function CodeEditor() {
+interface CodeEditorProps {
+  onCodeChange: (code: string) => void;
+  language: string;
+  theme: string;
+  icon: string
+  background?: string
+  currentPadding?: string
+}
+
+function CodeEditor({
+  onCodeChange,
+  language,
+  theme,
+  icon,
+  background,
+  currentPadding}:CodeEditorProps) {
   return (
     <Resizable
-      className="bg-white m-2"
       minHeight={466}
       minWidth={510}
       maxWidth={1000}
@@ -29,7 +43,7 @@ function CodeEditor() {
       <div>
         <AceEditor
           theme="monokai"
-          mode={"javascript"}
+          mode={language.toLocaleLowerCase()}
           wrapEnabled={true}
           showPrintMargin={false}
           highlightActiveLine={true}
