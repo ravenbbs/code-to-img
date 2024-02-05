@@ -8,13 +8,20 @@ body{
   color: #848484;
 }
 
+.code-title{
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2) !important;
+  border: 2px solid rgba(249, 249, 249, 0.08);
+}
+
 .ace-editor-container{
   width: 100% !important;
   
 }
 
 .ace_scrollbar{
-  display: none !important;
+  cursor: none !important;
   background-color: aquamarine;
 }
 
@@ -23,7 +30,7 @@ body{
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   border-top: none;
-  box-shadow: 2px 3px 10px rgb(0, 0, 0, 0.2);
+  box-shadow: 2px 3px 10px rgb(0, 0, 0, 0.2) !important;
   border: 2px solid rgba(249, 249, 249, 0.08);
   font-weight: 500 !important; 
   font-size: 17px !important;
