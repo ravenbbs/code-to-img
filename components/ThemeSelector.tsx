@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import { ChevronDown } from "lucide-react";
 import React from "react";
@@ -10,7 +10,8 @@ interface LanguageSelectorProps {
   setActiveIcon: (icon: string) => void;
 }
 
-function LanguageSelector({
+
+function ThemeSelector({
   language,
   setLanguage,
   setActiveIcon,
@@ -35,7 +36,7 @@ function LanguageSelector({
 
   return (
     <div onClick={toggleDropdown}>
-      <p className="py-[5px] text-sm font-medium">Lenguaje</p>
+      <p className="py-[5px] text-sm font-medium">Tema</p>
       <div className="dropdown-title capitalize w-[120px]">
         {language} <ChevronDown />
       </div>
@@ -60,4 +61,4 @@ function LanguageSelector({
   );
 }
 
-export default LanguageSelector;
+export default ThemeSelector;
