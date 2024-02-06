@@ -83,7 +83,7 @@ function CodeEditor({
           value="function CodeEditor() {hello world}"
           name="UNIQUE_ID_OF_DIV"
           fontSize={18}
-          theme="monokai"
+          theme={theme}
           mode={language.toLocaleLowerCase()}
           showGutter={false}
           wrapEnabled={true}
