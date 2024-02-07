@@ -1,17 +1,19 @@
 "use client";
 
+import { backgrounds } from "@/utils/utilities";
 import { ChevronDown } from "lucide-react";
 import React from "react";
+import OutsideClickHandler from "react-outside-click-handler";
 
-interface BackgroundSelectorProps{
-  background: string,
-  setBackground: (background: string) => void
+interface BackgroundSelectorProps {
+  background: string;
+  setBackground: (background: string) => void;
 }
 
 function BackgroundSelector({
   background,
   setBackground,
-}: BackgroundSelectorProps ) {
+}: BackgroundSelectorProps) {
   const [showDropdown, setShowDropdown] = React.useState(false);
 
   const toggleDropdown = () => {
@@ -20,37 +22,42 @@ function BackgroundSelector({
 
   const handleBackgroundChange = (newBackground: string) => {
     setBackground(newBackground);
-  }
+  };
   return (
-    <div className="bg-selector relative" onClick={toggleDropdown}>
-      <p className="py-[5px] text-sm font-medium">Background</p>
-      <div className="dropdown-title capitalize w-[60px]">
-         <div className="rounded-full w-[20px] h-[20px]" style={{background:background}}>
-
-         </div>
-         <ChevronDown />
-      </div>
-
-
-      {/* {showDropdown && (
-        <div className="dropdown-menu w-[60px] top-[94px]">
-          {languages.map((lang, i) => {
-            return (
-              <div key={i}>
-                <button
-                  className="dropdown-item  text-left"
-                  onClick={() => handleLanguageChange(lang.name)}
-                >
-                  {lang.name}
-                </button>
-              </div>
-            );
-          })}
+    <OutsideClickHandler onOutsideClick={() => setShowDropdown(false)}>
+      <div className="bg-selector relative" onClick={toggleDropdown}>
+        <p className="py-[5px] text-sm font-medium">Background</p>
+        <div className="dropdown-title capitalize w-[66px]">
+          <div
+            className="rounded-full w-[20px] h-[20px]"
+            style={{ background: background }}
+          ></div>
+          <ChevronDown />
         </div>
-      )} */}
-    </div>
+
+        {showDropdown && (
+          <div className="dropdown-menu w-[52px] top-[74px]">
+            {backgrounds.map((bg, i) => {
+              return (
+                <div
+                  className="w-full hover-item "
+                  onClick={() => handleBackgroundChange(bg)}
+                >
+                  <div
+                    key={i}
+                    className="w-[20px] h-[20px] rounded-full m-[2px] mx-auto "
+                    style={{
+                      background: bg,
+                    }}
+                  ></div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </OutsideClickHandler>
   );
 }
-
 
 export default BackgroundSelector;

@@ -75,7 +75,7 @@ function CodeEditor({
           <div className="input-control w-full">
             <input type="text" className="w-full text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent" />
           </div>
-          <div className="w-12 h-12  bg-opacity-30 rounded-md">
+          <div className="w-12 h-12 p-1 bg-opacity-30 rounded-md">
             <img className="w-full h-full" src={icon} alt='' />
           </div>
         </div>

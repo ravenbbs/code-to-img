@@ -60,7 +60,7 @@ body{
 }
 
 .dropdown-menu {
-  padding: 0.5rem 0 0.4rem 0.5rem;
+  padding: 0.4rem 0.2rem ;
   gap: 2px;
   display: flex;
   flex-direction: column;
@@ -68,4 +68,15 @@ body{
   background-color: #191919;
   border: 1px solid #3c3c3c;
   border-radius: 3px;
+}
+
+.hover-item{
+  cursor: pointer;
+  width: 100%;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+.hover-item:hover{
+  background-color: #dfdfdf19;
 }

@@ -3,6 +3,7 @@
 import { ChevronDown } from "lucide-react";
 import React from "react";
 import { themes } from "@/utils/utilities";
+import OutsideClickHandler from "react-outside-click-handler";
 
 interface ThemeSelectorProps {
   theme: string;
@@ -18,17 +19,11 @@ function ThemeSelector({ theme, setTheme }: ThemeSelectorProps) {
 
   const handleThemeChange = (newTheme: string) => {
     setTheme(newTheme);
-
-    // const newActiveIcon = languages.find(
-    //   (lang) => lang.name === newLanguage
-    // )?.icon;
-
-    // if (newActiveIcon) {
-
-    // }
   };
 
   return (
+    <OutsideClickHandler onOutsideClick={() => setShowDropdown(false)}>
+
     <div className="theme-selector" onClick={toggleDropdown}>
       <p className="py-[5px] text-sm font-medium">Tema</p>
       <div className="dropdown-title capitalize w-[140px]">
@@ -41,7 +36,7 @@ function ThemeSelector({ theme, setTheme }: ThemeSelectorProps) {
             return (
               <button
                 key={i}
-                className="dropdown-item text-left"
+                className="dropdown-item text-left hover-item"
                 onClick={() => handleThemeChange(theme)}
               >
                 {theme}
@@ -51,6 +46,7 @@ function ThemeSelector({ theme, setTheme }: ThemeSelectorProps) {
         </div>
       )}
     </div>
+    </OutsideClickHandler>
   );
 }
 
