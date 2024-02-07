@@ -23,7 +23,7 @@ interface CodeEditorProps {
   language: string;
   theme: string;
   icon: string;
-  background?: string;
+  background: string;
   currentPadding?: string;
 }
 
@@ -64,8 +64,16 @@ function CodeEditor({
       }}
       onResize={handleResize}
       className="resize-container relative"
+      style={{
+        background: background,
+      }}
     >
-      <div className="code-block">
+      <div
+        className="code-block"
+        style={{
+          padding: currentPadding,
+        }}
+      >
         <div className="code-title h-[56px] px-4 flex items-center justify-between bg-black bg-opacity-80">
           <div className="dots flex items-center gap-1">
             <div className="w-3 h-3 rounded-full bg-[#FF5D5B] border border-[#CF544D]"></div>
@@ -73,10 +81,13 @@ function CodeEditor({
             <div className="w-3 h-3 rounded-full bg-[#00CD4E] border border-[#0EA642]"></div>
           </div>
           <div className="input-control w-full">
-            <input type="text" className="w-full text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent" />
+            <input
+              type="text"
+              className="w-full text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent"
+            />
           </div>
           <div className="w-12 h-12 p-1 bg-opacity-30 rounded-md">
-            <img className="w-full h-full" src={icon} alt='' />
+            <img className="w-full h-full" src={icon} alt="" />
           </div>
         </div>
         <AceEditor
