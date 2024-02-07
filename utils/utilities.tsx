@@ -35,9 +35,7 @@ export const themes = ["monokai", "solarized_dark", "twilight", "terminal", "kur
 export const backgrounds = [
   "linear-gradient(354deg,#ff75b5,#ffb86c)",
   "linear-gradient(315deg, #e8bce8 0%, #9eeef9 50%, #f9dada 100%)",
-  "linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)",
-  "linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)",
-  "radial-gradient(at center, #53D4FA, #01BAFB)",
+  "linear-gradient(315deg, #53D4FA, #01BAFB)",
   "linear-gradient(140deg, rgb(255, 207, 115), rgb(255, 122, 47))",
   "linear-gradient(90deg,#93f9b9,#1d976c)",
   "linear-gradient(140deg, rgb(142, 199, 251), rgb(28, 85, 170))",
