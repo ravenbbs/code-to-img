@@ -66,7 +66,7 @@ function CodeEditor({
       className="resize-container relative"
     >
       <div className="code-block">
-        <div className="code-title h-[52px] px-4 flex items-center justify-between bg-black bg-opacity-80">
+        <div className="code-title h-[56px] px-4 flex items-center justify-between bg-black bg-opacity-80">
           <div className="dots flex items-center gap-1">
             <div className="w-3 h-3 rounded-full bg-[#FF5D5B] border border-[#CF544D]"></div>
             <div className="w-3 h-3 rounded-full bg-[#FFBB39] border border-[#CFA64E]"></div>
@@ -75,8 +75,8 @@ function CodeEditor({
           <div className="input-control w-full">
             <input type="text" className="w-full text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent" />
           </div>
-          <div className="icon flex justify-center items-center p-1 bg-black bg-opacity-30 rounded-sm">
-            <img src={icon} alt='' />
+          <div className="w-12 h-12  bg-opacity-30 rounded-md">
+            <img className="w-full h-full" src={icon} alt='' />
           </div>
         </div>
         <AceEditor
