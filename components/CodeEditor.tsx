@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Resizable } from "re-resizable";
 import AceEditor from "react-ace";
 
@@ -23,7 +23,7 @@ interface CodeEditorProps {
   language: string;
   theme: string;
   icon: string;
-  background: string;
+  background?: string;
   currentPadding?: string;
 }
 
@@ -35,33 +35,40 @@ function CodeEditor({
   currentPadding,
 }: CodeEditorProps) {
   const [width, setWidth] = React.useState(1000);
-  const [height, setHeight] = React.useState<number | null>(500);
-  const [title, setTitle] = React.useState('Sin-Titulo')
-  const [code, setCode] = React.useState(initialCode)
+  const [height, setHeight] = React.useState(500);
+  const [title, setTitle] = React.useState("Sin-Titulo");
+  const [code, setCode] = React.useState(initialCode);
+
 
   const handleCodeChange = (newCode: string) => {
-    setCode(newCode)
-  }
+    setCode(newCode);
+  };
 
   //@ts-ignore
+
   const handleResize = (evt, direction, ref, pos) => {
     const newHeight = ref.style.height;
     setHeight(parseInt(newHeight, 10));
   };
 
-  const updateSize = () => {
-    setWidth(window.innerWidth);
-  };
 
   useEffect(() => {
+    const updateSize = () => {
+      setWidth(window.innerWidth);
+    };
+
     window.addEventListener("resize", updateSize);
     updateSize();
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
+  const calculateEditorHeight = () => {
+    return `calc(${height}px - ${currentPadding} - ${currentPadding} - 52px)`;
+  };
+
   return (
     <Resizable
-      minHeight={466}
+      minHeight={500}
       minWidth={510}
       maxWidth={1000}
       defaultSize={{
@@ -69,7 +76,7 @@ function CodeEditor({
         height: height || 500,
       }}
       onResize={handleResize}
-      className="resize-container relative rounded-md"
+      className="resize-container relative"
       style={{
         background: background,
       }}
@@ -80,6 +87,11 @@ function CodeEditor({
           padding: currentPadding,
         }}
       >
+        <div className="handle handle-top absolute left-1/2 translate-x-[-50%] top-[-4px] w-2 h-2 rounded-full bg-slate-300 hover:bg-slate-950"></div>
+        <div className="handle handle-bottom absolute left-1/2 bottom-[-4px] w-2 h-2 rounded-full bg-slate-300 "></div>
+        <div className="handle handle-left absolute left-[-4px] top-1/2 w-2 h-2 rounded-full bg-slate-300 "></div>
+        <div className="handle handle-right absolute right-[-4px] top-1/2 w-2 h-2 rounded-full bg-slate-300 "></div>
+
         <div className="code-title h-[56px] px-4 flex items-center justify-between bg-black bg-opacity-80">
           <div className="dots flex items-center gap-1">
             <div className="w-3 h-3 rounded-full bg-[#FF5D5B] border border-[#CF544D]"></div>
@@ -94,7 +106,7 @@ function CodeEditor({
               className="w-full text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent"
             />
           </div>
-          <div className="w-12 h-12 p-1 bg-opacity-30 rounded-md">
+          <div className="w-9 h-9 p-1 bg-opacity-30 rounded-md">
             <img className="w-full h-full" src={icon} alt="" />
           </div>
         </div>
@@ -106,7 +118,7 @@ function CodeEditor({
           mode={language.toLocaleLowerCase()}
           showGutter={false}
           wrapEnabled={true}
-          height={`calc(${height}px - ${currentPadding} - ${currentPadding} - 52px)`}
+          height={calculateEditorHeight()}
           showPrintMargin={false}
           highlightActiveLine={false}
           editorProps={{ $blockScrolling: true }}
