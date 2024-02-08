@@ -84,7 +84,7 @@ export default function Home() {
           </button>
         </div>
       </header>
-      <div className="code-editor-ref mt-[14rem]" ref={editorRef}>
+      <div className="code-editor-ref mt-[12rem]" ref={editorRef}>
         <CodeEditor
           background={background}
           language={language}
