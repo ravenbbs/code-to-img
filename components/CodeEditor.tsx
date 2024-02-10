@@ -98,12 +98,12 @@ function CodeEditor({
             <div className="w-3 h-3 rounded-full bg-[#FFBB39] border border-[#CFA64E]"></div>
             <div className="w-3 h-3 rounded-full bg-[#00CD4E] border border-[#0EA642]"></div>
           </div>
-          <div className="input-control w-full">
+          <div className="input-control w-full flex justify-center items-center">
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent"
+              className="text-[hsla(0,0%,100%,.6)] w-full outline-none font-medium text-center bg-transparent min-h-[38px]"
             />
           </div>
           <div className="w-9 h-9 p-1 bg-opacity-30 rounded-md">
