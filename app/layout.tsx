@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   category: 'technology',
 
   // Open Graph Tags
+  
   openGraph: {
     title: 'Code To Image App',
     description: 'Convierte tu código en imágenes de forma rápida y sencilla con Code To Image App. Ideal para compartir tus proyectos en redes sociales y presentaciones.',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     siteName: 'Code To Image App',
     images: [
       {
-        url: '/code-to-image-converter.png', // Must be an absolute URL
+        url: 'https://github.com/ravenbbs/code-to-img/blob/main/public/code-to-image-converter.png', // Must be an absolute URL
         width: 1800,
         height: 1600,
         alt: 'Image of code',
@@ -50,7 +51,7 @@ twitter: {
   siteId: '1467726470533754880',
   creator: '@ravenbbs',
   creatorId: '1467726470533754880',
-  images: ['/code-to-image-converter.png'], // Must be an absolute URL
+  images: ['https://github.com/ravenbbs/code-to-img/blob/main/public/code-to-image-converter.png'], // Must be an absolute URL
 },
   
 }
